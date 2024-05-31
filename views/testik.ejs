@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Test</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <img src="/image/logo.png" alt="PyWebbEd">
+        </div>
+    </header>
+    <h1>Python Test</h1>
+    <form id="testForm" action="dashboard/submit-test" method="POST">
+        <input type="hidden" name="module" value="Python Basics">
+        <input type="hidden" id="score" name="score" value="0">
+        <ol>
+            <li>
+                <label for="q1">Что выведет следующий код?
+                    <pre><code>print(2 + 2)</code></pre>
+                </label>
+                <input type="text" id="q1" name="q1">
+            </li>
+            <li>
+                <label for="q2">Чему будет равно значение переменной a после выполнения следующего кода?
+                    <pre><code>a = 5
+a += 3</code></pre>
+                </label>
+                <input type="text" id="q2" name="q2">
+            </li>
+            <li>
+                <label for="q3">Какой результат вернет выполнение следующего кода?
+                    <pre><code>print("hello" * 3)</code></pre>
+                </label>
+                <input type="text" id="q3" name="q3">
+            </li>
+            <li>
+                <label for="q4">Какой тип данных будет у переменной x после выполнения следующего кода?
+                    <pre><code>x = 3.5</code></pre>
+                </label>
+                <input type="text" id="q4" name="q4">
+            </li>
+            <li>
+                <label for="q5">Что будет выведено на экран после выполнения следующего кода?
+                    <pre><code>print(len("python"))</code></pre>
+                </label>
+                <input type="text" id="q5" name="q5">
+            </li>
+        </ol>
+        <button type="submit">Отправить ответы</button>
+    </form>
+    <p id="successMessage" style="display: none;">Ответы успешно отправлены!</p>
+        <!-- Добавляем кнопку для перехода на главную страницу -->
+
+        <script>
+            document.getElementById('testForm').onsubmit = function(event) {
+                event.preventDefault(); // Предотвращаем стандартное действие отправки формы
+    
+                let score = 0;
+                const correctAnswers = ["4", "8", "hellohellohello", "float", "6"];
+                const userAnswers = [
+                    document.getElementById('q1').value,
+                    document.getElementById('q2').value,
+                    document.getElementById('q3').value,
+                    document.getElementById('q4').value,
+                    document.getElementById('q5').value
+                ];
+    
+                userAnswers.forEach((answer, index) => {
+                    if (answer.trim().toLowerCase() === correctAnswers[index]) {
+                        score++;
+                    }
+                });
+    
+                document.getElementById('score').value = score;
+    
+                // Показываем сообщение об успешной отправке ответов
+                document.getElementById('successMessage').style.display = 'block';
+    
+                // Через 3 секунды перенаправляем пользователя на главную страницу
+                setTimeout(function() {
+                    window.location.href = "/";
+                }, 3000);
+    
+                return false; // Предотвращаем отправку формы
+            };
+        </script>
+</body>
+</html>

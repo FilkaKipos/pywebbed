@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PyWebbEd</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/theme/monokai.min.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="/image/logo.png" alt="PyWebbEd">
+    </div>
+  </header>
+  <main>
+    <aside class="sidebar">
+      <ul>
+        <li><a href="/lesson1">Тема 1</a></li>
+        <li><a href="#">Тема 2</a></li>
+        <li><a href="#">Тема 3</a></li>
+        <li><a href="#">Тема 4</a></li>
+      </ul>
+    </aside>
+    <section class="content">
+      <h2>Занятие 1. Ввод и вывод данных</h2>
+      <p>Python 3 — это современный язык, на котором просто и приятно писать программы.</p>
+      <p>Для печати значений в Питоне есть функция print(). Внутри круглых скобок через запятую мы пишем то, что хотим вывести. Вот программа, которая делает несколько вычислений:</p>
+      <textarea class="code">print(5 + 10)
+print(3 * 7, (17 - 2) * 8)
+print(2 ** 16)  # две звёздочки означают возведение в степень
+print(37 / 3)   # один слэш — это деление с ответом-дробью
+print(37 // 3)  # два слэша считают частное от деления нацело
+                # это как операция div в других языках
+print(37 % 3)   # процент считает остаток от деления нацело
+                # это как операция mod в других языках</textarea>
+      <button class="run-btn">Run</button>
+      <pre class="output"></pre>
+      <p>Для ввода данных в программу мы используем функцию input(). Она считывает одну строку.</p>
+      <p>Вот программа, которая считывает имя пользователя и приветствует его:</p>
+      <textarea class="code">print('Как вас зовут?')
+name = input()  # считываем строку и кладём её в переменную name
+print('Здравствуйте, ' + name + '!')</textarea>
+      <button class="run-btn">Run</button>
+      <pre class="output"></pre>
+      <p>Мы будем писать программы, которые считывают данные, перерабатывают их и выводят какой-то результат. При запуске на компьютере такие программы считывают данные, которые пользователь вводит с клавиатуры, а результат выводят на экран.</p>
+      <p>Попробуем написать программу, которая считывает два числа и выводит их сумму. Для этого считаем два числа и сохраним их в переменные a и b, пользуясь оператором присваивания =. Слева от оператора присваивания в программах на Питоне ставится имя переменной — например, строка из латинских букв. Справа от оператора присваивания ставится любое выражение. Имя станет указывать на результат вычисления выражения. Проиграйте эту программу и посмотрите на результаты её работы:</p>
+      <textarea class="code" rows="10">a = input()
+b = input()
+s = a + b
+print(s)</textarea>
+      <button class="run-btn">Run</button>
+      <pre class="output"></pre>
+      <p>Мы видим, что программа выводит 57, хотя в реальной жизни 5 + 7 будет 12. Это произошло потому, что Питон в третьей строчке «сложил» две строки, а не два числа. В Питоне две строки складываются так: к первой строке приписывается вторая.</p>
+      <p>Обратите внимание, что в визуализаторе содержимое переменных a и b заключено в кавычки. Это означает, что в a и b лежат строки, а не числа.</p>
+      <p>В Питоне все данные называются объектами. Число 2 представляется объектом «число 2», строка 'hello' – это объект «строка 'hello'».</p>
+      <p>Каждый объект относится к какому-то типу. Строки хранятся в объектах типа str, целые числа хранятся в объектах типа int, дробные числа (вещественные числа) — в объектах типа float. Тип объекта определяет, какие действия можно делать с объектами этого типа. Например, если в переменных first и second лежат объекты типа int, то их можно перемножить, а если в них лежат объекты типа str, то их перемножить нельзя:</p>
+      <textarea class="code">first = 5
+second = 7
+print(first * second)
+first = '5'
+second = '7'
+print(first * second)</textarea>
+      <button class="run-btn">Run</button>
+      <pre class="output"></pre>
+      <p>Чтобы преобразовать строку из цифр в целое число, воспользуемся функцией int(). Например, int('23') вернет число 23.</p>
+      <p>Вот пример правильной программы, которая считывает два числа и выводит их сумму:</p>
+      <textarea class="code">a = int(input())
+b = int(input())
+s = a + b
+print(s)</textarea>
+      <button class="run-btn">Run</button>
+      <pre class="output"></pre>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>
+      <p></p>    
+      <p></p>
+      <p></p>
+      <p></p>
+      <a class="startt-button" href="/auth/login">Пройти тест</a>
+    </section>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.5/mode/python/python.min.js"></script>
+  <script>
+    document.querySelectorAll('.code').forEach((textarea) => {
+      CodeMirror.fromTextArea(textarea, {
+        lineNumbers: true,
+        mode: 'python',
+        theme: 'monokai'
+      });
+    });
+
+    document.querySelectorAll('.run-btn').forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        const code = document.querySelectorAll('.CodeMirror')[index].CodeMirror.getValue();
+        const output = document.querySelectorAll('.output')[index];
+        fetch('/run', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ code })
+        })
+        .then(response => response.json())
+        .then(data => {
+          output.textContent = data.output;
+        })
+        .catch(error => {
+          output.textContent = 'Error: ' + error;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
