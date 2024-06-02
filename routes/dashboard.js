@@ -19,7 +19,7 @@ router.get('/', isAuthenticated, (req, res) => {
   const role = req.session.role;
 
   if (role === 'student') {
-    res.render('testik');
+    res.render('lesson1');
   } else if (role === 'teacher') {
     res.render('teacher_dashboard');
   } else {
